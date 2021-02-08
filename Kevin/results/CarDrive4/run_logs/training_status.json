@@ -1,0 +1,30 @@
+{
+    "CarDrive": {
+        "checkpoints": [
+            {
+                "steps": 499992,
+                "file_path": "results\\CarDrive4\\CarDrive\\CarDrive-499992.onnx",
+                "reward": -1.0341653795393624,
+                "creation_time": 1610934249.0334768
+            },
+            {
+                "steps": 500067,
+                "file_path": "results\\CarDrive4\\CarDrive\\CarDrive-500067.onnx",
+                "reward": -1.0327913241531148,
+                "creation_time": 1610934249.0781157
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500067,
+            "file_path": "results\\CarDrive4\\CarDrive.onnx",
+            "reward": -1.0327913241531148,
+            "creation_time": 1610934249.0781157
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.23.0",
+        "torch_version": "1.7.0+cu110",
+        "tensorflow_version": -1
+    }
+}
