@@ -1,5 +1,10 @@
+# for full .yaml setup, please reference to
+# https://www.immersivelimit.com/tutorials/reinforcement-learning-penguins-part-4-unity-ml-agents
+
 behaviors:
     CarDrive:
-        trainer_type: ppo    
+        trainer_type: ppo  
+        max_steps: 2000000
         summary_freq: 10000
+        threaded: true
             

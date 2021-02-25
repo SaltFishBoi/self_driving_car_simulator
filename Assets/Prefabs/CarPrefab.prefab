@@ -42,16 +42,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    vectorObservationSize: 5
-    numStackedVectorObservations: 1
-    vectorActionSize: 02000000
-    vectorActionDescriptions: []
-    vectorActionSpaceType: 1
+    VectorObservationSize: 5
+    NumStackedVectorObservations: 1
+    VectorActionSize: 02000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 1
   m_Model: {fileID: 5022602860645237092, guid: 092026f839b5e104b8000757ee894cac, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: CarDrive
-  m_TeamID: 0
+  TeamId: 0
   m_UseChildSensors: 1
 --- !u!114 &99863416
 MonoBehaviour:
@@ -68,7 +68,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  maxStep: 0
+  MaxStep: 0
   speed: 10
   torque: 1
   score: 0
@@ -86,8 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DecisionPeriod: 1
-  RepeatAction: 1
-  offsetStep: 0
+  TakeActionsBetweenDecisions: 1
 --- !u!1001 &7004738600088017986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103,8 +102,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
+      propertyPath: m_TagString
+      value: car
+      objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
@@ -120,6 +127,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -130,14 +141,6 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

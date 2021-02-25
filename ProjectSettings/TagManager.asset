@@ -6,6 +6,8 @@ TagManager:
   tags:
   - wall
   - tile
+  - car
+  - teapot
   layers:
   - Default
   - TransparentFX
