@@ -1,0 +1,6 @@
+behaviors:
+    CarDrive2:
+        trainer_type: ppo
+        max_steps: 1000000
+        summary_freq: 10000
+        threaded: true

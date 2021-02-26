@@ -1,24 +1,30 @@
 {
-    "CarDrive": {
+    "CarDrive2": {
         "checkpoints": [
             {
-                "steps": 499987,
-                "file_path": "results\\CarDrive\\CarDrive\\CarDrive-499987.onnx",
+                "steps": 499942,
+                "file_path": "results\\CarDrive\\CarDrive2\\CarDrive2-499942.onnx",
                 "reward": null,
-                "creation_time": 1613011971.0395246
+                "creation_time": 1614229452.3534198
             },
             {
-                "steps": 500179,
-                "file_path": "results\\CarDrive\\CarDrive\\CarDrive-500179.onnx",
+                "steps": 999999,
+                "file_path": "results\\CarDrive\\CarDrive2\\CarDrive2-999999.onnx",
                 "reward": null,
-                "creation_time": 1613011971.1093378
+                "creation_time": 1614229920.3201485
+            },
+            {
+                "steps": 1000703,
+                "file_path": "results\\CarDrive\\CarDrive2\\CarDrive2-1000703.onnx",
+                "reward": null,
+                "creation_time": 1614229920.4050426
             }
         ],
         "final_checkpoint": {
-            "steps": 500179,
-            "file_path": "results\\CarDrive\\CarDrive.onnx",
+            "steps": 1000703,
+            "file_path": "results\\CarDrive\\CarDrive2.onnx",
             "reward": null,
-            "creation_time": 1613011971.1093378
+            "creation_time": 1614229920.4050426
         }
     },
     "metadata": {

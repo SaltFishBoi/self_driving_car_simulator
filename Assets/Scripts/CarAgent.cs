@@ -64,22 +64,23 @@ public class CarAgent : Agent
         //vectorSensor.AddObservation(ObserveRay(-1.5f, 0, 180f));
 
         // additional rays originating at the edge of the car collision box with angles relative to the car's centroid
-        vectorSensor.AddObservation(ObserveRay(0f, 0.75f, (float)Math.Atan(0.75f / 0f)*(180f/((float)Math.PI)) ));
-        vectorSensor.AddObservation(ObserveRay(1.5f, 0.75f, (float)Math.Atan(0.75f / 1.5f) * (180f / ((float)Math.PI))));
-        vectorSensor.AddObservation(ObserveRay(1.5f, 0.5f, (float)Math.Atan(0.5f / 1.5f) * (180f / ((float)Math.PI))));
-        vectorSensor.AddObservation(ObserveRay(1.5f, 0f, (float)Math.Atan(0f / 1.5f) * (180f / ((float)Math.PI))));
-        vectorSensor.AddObservation(ObserveRay(1.5f, -0.5f, (float)Math.Atan(-0.5f / 1.5f) * (180f / ((float)Math.PI))));
-        vectorSensor.AddObservation(ObserveRay(1.5f, -0.75f, (float)Math.Atan(-0.75f / 1.5f) * (180f / ((float)Math.PI))));
-        vectorSensor.AddObservation(ObserveRay(0f, -0.75f, (float)Math.Atan(-0.75f / 0f) * (180f / ((float)Math.PI))));
-        vectorSensor.AddObservation(ObserveRay(-1.5f, 0f, (float)Math.Atan(-0f / 1.5f) * (180f / ((float)Math.PI)) - 180f ));
+        //vectorSensor.AddObservation(ObserveRay(0f, 0.75f, (float)Math.Atan(0.75f / 0f)*(180f/((float)Math.PI)), false ));
+        //vectorSensor.AddObservation(ObserveRay(1.5f, 0.75f, (float)Math.Atan(0.75f / 1.5f) * (180f / ((float)Math.PI)), false));
+        //vectorSensor.AddObservation(ObserveRay(1.5f, 0.5f, (float)Math.Atan(0.5f / 1.5f) * (180f / ((float)Math.PI)), false));
+        //vectorSensor.AddObservation(ObserveRay(1.5f, 0f, (float)Math.Atan(0f / 1.5f) * (180f / ((float)Math.PI)), true));
+        ////vectorSensor.AddObservation(ObserveRay(0f, 0f, (float)Math.Atan(0f / 1.5f) * (180f / ((float)Math.PI)), true));
+        //vectorSensor.AddObservation(ObserveRay(1.5f, -0.5f, (float)Math.Atan(-0.5f / 1.5f) * (180f / ((float)Math.PI)), false));
+        //vectorSensor.AddObservation(ObserveRay(1.5f, -0.75f, (float)Math.Atan(-0.75f / 1.5f) * (180f / ((float)Math.PI)), false));
+        //vectorSensor.AddObservation(ObserveRay(0f, -0.75f, (float)Math.Atan(-0.75f / 0f) * (180f / ((float)Math.PI)), false));
+        //vectorSensor.AddObservation(ObserveRay(-1.5f, 0f, (float)Math.Atan(-0f / 1.5f) * (180f / ((float)Math.PI)) - 180f , false));
     }
 
-    private float ObserveRay(float z, float x, float angle)
+    private float ObserveRay(float z, float x, float angle, bool dbug)
     {
         var tf = transform;
 
         // Get the start position of the ray
-        var raySource = tf.position + Vector3.up / 2f; 
+        var raySource = tf.position + Vector3.up / 2f;
         const float RAY_DIST = 5f;
         var position = raySource + tf.forward * z + tf.right * x;
 
@@ -94,20 +95,41 @@ public class CarAgent : Agent
         Physics.Raycast(position, dir, out var hit, RAY_DIST);
 
         var retval = 0f;
+        string rettag;
 
         //return hit.distance >= 0 ? hit.distance / RAY_DIST : -1f;
-        if (hit.distance <= 0)
+        if (hit.distance >= 0)
         {
             retval = hit.distance / RAY_DIST;
-            Debug.DrawRay(position, dir * RAY_DIST, Color.red);
+            if (dbug == true)
+            {
+                Debug.DrawRay(position, dir * RAY_DIST, Color.red);
+            }
         }
-        else if (hit.distance > 0)
+        else if (hit.distance < 0)
         {
             retval = -1f;
-            Debug.DrawRay(position, dir * RAY_DIST, Color.yellow);
+            if (dbug == true)
+            {
+                Debug.DrawRay(position, dir * RAY_DIST, Color.yellow);
+            }
         }
 
-        //Debug.Log(hit.distance);
+        if (dbug == true)
+        {
+            //Debug.Log(hit.distance);
+            //Debug.Log(hit.transform);
+            if (hit.transform != null)
+            {
+                rettag = hit.transform.tag;
+                Debug.Log(rettag);
+            }
+            else
+            {
+                rettag = "Null";
+                Debug.Log(rettag);
+            }
+        }
         return retval;
     }
 
@@ -152,5 +174,18 @@ public class CarAgent : Agent
             SetReward(-1f);
             EndEpisode();
         }
+
+        if (other.gameObject.CompareTag("car"))
+        {
+            SetReward(-3f);
+            EndEpisode();
+        }
+
+        if (other.gameObject.CompareTag("obstacle"))
+        {
+            SetReward(-3f);
+            EndEpisode();
+        }
+
     }
 }

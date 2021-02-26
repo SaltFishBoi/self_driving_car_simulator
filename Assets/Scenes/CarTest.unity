@@ -2535,7 +2535,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 52e4ad71deabd9b41abb2102d3e4f63a,
+      objectReference: {fileID: 5022602860645237092, guid: 0be2c5724cda1eb4990296677432e757,
         type: 3}
     - target: {fileID: -7090745051701112706, guid: 20c7f04929221b946a1bf2d707af0a2e,
         type: 3}
@@ -2544,8 +2544,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7090745051701112706, guid: 20c7f04929221b946a1bf2d707af0a2e,
         type: 3}
+      propertyPath: m_BrainParameters.VectorActionSpaceType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7090745051701112706, guid: 20c7f04929221b946a1bf2d707af0a2e,
+        type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 9
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7090745051701112706, guid: 20c7f04929221b946a1bf2d707af0a2e,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 99863416, guid: 20c7f04929221b946a1bf2d707af0a2e, type: 3}
       propertyPath: resetOnCollision
@@ -2610,6 +2620,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CarPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004738600088050400, guid: 20c7f04929221b946a1bf2d707af0a2e,
+        type: 3}
+      propertyPath: m_TagString
+      value: car
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004738600088050406, guid: 20c7f04929221b946a1bf2d707af0a2e,
+        type: 3}
+      propertyPath: m_TagString
+      value: car
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004738600088050408, guid: 20c7f04929221b946a1bf2d707af0a2e,
+        type: 3}
+      propertyPath: m_TagString
+      value: car
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004738600088050410, guid: 20c7f04929221b946a1bf2d707af0a2e,
+        type: 3}
+      propertyPath: m_TagString
+      value: car
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004738600088050414, guid: 20c7f04929221b946a1bf2d707af0a2e,
+        type: 3}
+      propertyPath: m_TagString
+      value: car
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20c7f04929221b946a1bf2d707af0a2e, type: 3}
