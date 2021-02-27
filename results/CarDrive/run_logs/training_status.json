@@ -1,30 +1,42 @@
 {
-    "CarDrive2": {
+    "CarDrive": {
         "checkpoints": [
             {
-                "steps": 499942,
-                "file_path": "results\\CarDrive\\CarDrive2\\CarDrive2-499942.onnx",
-                "reward": null,
-                "creation_time": 1614229452.3534198
+                "steps": 499960,
+                "file_path": "results\\CarDrive\\CarDrive\\CarDrive-499960.onnx",
+                "reward": 68.72852989193052,
+                "creation_time": 1614379040.4715514
             },
             {
-                "steps": 999999,
-                "file_path": "results\\CarDrive\\CarDrive2\\CarDrive2-999999.onnx",
+                "steps": 999970,
+                "file_path": "results\\CarDrive\\CarDrive\\CarDrive-999970.onnx",
                 "reward": null,
-                "creation_time": 1614229920.3201485
+                "creation_time": 1614380578.341957
             },
             {
-                "steps": 1000703,
-                "file_path": "results\\CarDrive\\CarDrive2\\CarDrive2-1000703.onnx",
+                "steps": 1499938,
+                "file_path": "results\\CarDrive\\CarDrive\\CarDrive-1499938.onnx",
                 "reward": null,
-                "creation_time": 1614229920.4050426
+                "creation_time": 1614382134.2340252
+            },
+            {
+                "steps": 1999937,
+                "file_path": "results\\CarDrive\\CarDrive\\CarDrive-1999937.onnx",
+                "reward": null,
+                "creation_time": 1614383578.6825027
+            },
+            {
+                "steps": 2000001,
+                "file_path": "results\\CarDrive\\CarDrive\\CarDrive-2000001.onnx",
+                "reward": null,
+                "creation_time": 1614383578.7755444
             }
         ],
         "final_checkpoint": {
-            "steps": 1000703,
-            "file_path": "results\\CarDrive\\CarDrive2.onnx",
+            "steps": 2000001,
+            "file_path": "results\\CarDrive\\CarDrive.onnx",
             "reward": null,
-            "creation_time": 1614229920.4050426
+            "creation_time": 1614383578.7755444
         }
     },
     "metadata": {

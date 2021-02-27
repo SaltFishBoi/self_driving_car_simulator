@@ -49,7 +49,7 @@ MonoBehaviour:
     VectorActionSpaceType: 1
   m_Model: {fileID: 5022602860645237092, guid: bf310b9ab2509c44fbc6d13b7fe4a87e, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 2
   m_BehaviorName: CarDrive2
   TeamId: 0
   m_UseChildSensors: 1

@@ -723,8 +723,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 0be2c5724cda1eb4990296677432e757,
+      objectReference: {fileID: 5022602860645237092, guid: 69d8fbf17a79b2740a60f2a0e7830dff,
         type: 3}
+    - target: {fileID: -7090745051701112706, guid: 20c7f04929221b946a1bf2d707af0a2e,
+        type: 3}
+      propertyPath: m_BehaviorType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -7090745051701112706, guid: 20c7f04929221b946a1bf2d707af0a2e,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
@@ -998,8 +1003,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 0be2c5724cda1eb4990296677432e757,
+      objectReference: {fileID: 5022602860645237092, guid: 69d8fbf17a79b2740a60f2a0e7830dff,
         type: 3}
+    - target: {fileID: -7090745051701112706, guid: 20c7f04929221b946a1bf2d707af0a2e,
+        type: 3}
+      propertyPath: m_BehaviorType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -7090745051701112706, guid: 20c7f04929221b946a1bf2d707af0a2e,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
@@ -2284,6 +2294,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 99863416, guid: 20c7f04929221b946a1bf2d707af0a2e, type: 3}
+      propertyPath: speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 99863416, guid: 20c7f04929221b946a1bf2d707af0a2e, type: 3}
+      propertyPath: torque
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 99863416, guid: 20c7f04929221b946a1bf2d707af0a2e, type: 3}
       propertyPath: resetOnCollision
       value: 0
       objectReference: {fileID: 0}
@@ -2748,8 +2766,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 0be2c5724cda1eb4990296677432e757,
+      objectReference: {fileID: 5022602860645237092, guid: 69d8fbf17a79b2740a60f2a0e7830dff,
         type: 3}
+    - target: {fileID: -7090745051701112706, guid: 20c7f04929221b946a1bf2d707af0a2e,
+        type: 3}
+      propertyPath: m_BehaviorType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -7090745051701112706, guid: 20c7f04929221b946a1bf2d707af0a2e,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
