@@ -5,19 +5,14 @@ using UnityEngine;
 public class Surfer : MonoBehaviour
 {
     public Vector3 pointB;
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    public float duration;
     IEnumerator Start()
     {
         var pointA = transform.position;
         while (true)
         {
-            yield return StartCoroutine(MoveObject(transform, pointA, pointB, 3.0f));
-            yield return StartCoroutine(MoveObject(transform, pointB, pointA, 3.0f));
+            yield return StartCoroutine(MoveObject(transform, pointA, pointB, duration));
+            yield return StartCoroutine(MoveObject(transform, pointB, pointA, duration));
         }
     }
 
