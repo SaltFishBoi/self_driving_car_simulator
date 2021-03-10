@@ -18,6 +18,10 @@ public class Car : MonoBehaviour
         float dt = Time.deltaTime;
         MoveCar(horizontal, vertical, dt);
         score += GetTrackIncrement();
+
+        //Color color = new Color(1, 0, 0, 1);
+        Vector3 forward = transform.TransformDirection(Vector3.forward) * 30;
+        //Debug.DrawRay(transform.position, forward, Color.red);
     }
 
     private  void MoveCar(float horizontal, float vertical, float dt)

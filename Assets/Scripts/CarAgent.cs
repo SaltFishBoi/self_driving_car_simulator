@@ -1,6 +1,8 @@
 ﻿using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+// added system so I can use the class Math
+using System;
 
 public class CarAgent : Agent
 {
@@ -55,28 +57,80 @@ public class CarAgent : Agent
         float angle = Vector3.SignedAngle(_track.forward, transform.forward, Vector3.up);
 
         vectorSensor.AddObservation(angle / 180f);
-        vectorSensor.AddObservation(ObserveRay(1.5f, .5f, 25f));
-        vectorSensor.AddObservation(ObserveRay(1.5f, 0f, 0f));
-        vectorSensor.AddObservation(ObserveRay(1.5f, -.5f, -25f));
-        vectorSensor.AddObservation(ObserveRay(-1.5f, 0, 180f));
+        // old  rays
+        //vectorSensor.AddObservation(ObserveRay(1.5f, .5f, 25f));
+        //vectorSensor.AddObservation(ObserveRay(1.5f, 0f, 0f));
+        //vectorSensor.AddObservation(ObserveRay(1.5f, -.5f, -25f));
+        //vectorSensor.AddObservation(ObserveRay(-1.5f, 0, 180f));
+
+        // additional rays originating at the edge of the car collision box with angles relative to the car's centroid
+        //vectorSensor.AddObservation(ObserveRay(0f, 0.75f, (float)Math.Atan(0.75f / 0f)*(180f/((float)Math.PI)), false ));
+        //vectorSensor.AddObservation(ObserveRay(1.5f, 0.75f, (float)Math.Atan(0.75f / 1.5f) * (180f / ((float)Math.PI)), false));
+        //vectorSensor.AddObservation(ObserveRay(1.5f, 0.5f, (float)Math.Atan(0.5f / 1.5f) * (180f / ((float)Math.PI)), false));
+        //vectorSensor.AddObservation(ObserveRay(1.5f, 0f, (float)Math.Atan(0f / 1.5f) * (180f / ((float)Math.PI)), true));
+        ////vectorSensor.AddObservation(ObserveRay(0f, 0f, (float)Math.Atan(0f / 1.5f) * (180f / ((float)Math.PI)), true));
+        //vectorSensor.AddObservation(ObserveRay(1.5f, -0.5f, (float)Math.Atan(-0.5f / 1.5f) * (180f / ((float)Math.PI)), false));
+        //vectorSensor.AddObservation(ObserveRay(1.5f, -0.75f, (float)Math.Atan(-0.75f / 1.5f) * (180f / ((float)Math.PI)), false));
+        //vectorSensor.AddObservation(ObserveRay(0f, -0.75f, (float)Math.Atan(-0.75f / 0f) * (180f / ((float)Math.PI)), false));
+        //vectorSensor.AddObservation(ObserveRay(-1.5f, 0f, (float)Math.Atan(-0f / 1.5f) * (180f / ((float)Math.PI)) - 180f , false));
     }
 
-    private float ObserveRay(float z, float x, float angle)
+    private float ObserveRay(float z, float x, float angle, bool dbug)
     {
         var tf = transform;
-    
+
         // Get the start position of the ray
-        var raySource = tf.position + Vector3.up / 2f; 
+        var raySource = tf.position + Vector3.up / 2f;
         const float RAY_DIST = 5f;
         var position = raySource + tf.forward * z + tf.right * x;
 
         // Get the angle of the ray
         var eulerAngle = Quaternion.Euler(0, angle, 0f);
         var dir = eulerAngle * tf.forward;
-    
+
+        // Assign the color for the ray
+        var rayColorHit = Color.red;
+
         // See if there is a hit in the given direction
         Physics.Raycast(position, dir, out var hit, RAY_DIST);
-        return hit.distance >= 0 ? hit.distance / RAY_DIST : -1f;
+
+        var retval = 0f;
+        string rettag;
+
+        //return hit.distance >= 0 ? hit.distance / RAY_DIST : -1f;
+        if (hit.distance >= 0)
+        {
+            retval = hit.distance / RAY_DIST;
+            if (dbug == true)
+            {
+                Debug.DrawRay(position, dir * RAY_DIST, Color.red);
+            }
+        }
+        else if (hit.distance < 0)
+        {
+            retval = -1f;
+            if (dbug == true)
+            {
+                Debug.DrawRay(position, dir * RAY_DIST, Color.yellow);
+            }
+        }
+
+        if (dbug == true)
+        {
+            //Debug.Log(hit.distance);
+            //Debug.Log(hit.transform);
+            if (hit.transform != null)
+            {
+                rettag = hit.transform.tag;
+                Debug.Log(rettag);
+            }
+            else
+            {
+                rettag = "Null";
+                Debug.Log(rettag);
+            }
+        }
+        return retval;
     }
 
     private int GetTrackIncrement()
@@ -112,10 +166,26 @@ public class CarAgent : Agent
 
     private void OnCollisionEnter(Collision other)
     {
+        // Create a small green ray at any collision in normal direction to the collision surface that lasts for about 2 seconds
+        Debug.DrawRay(other.contacts[0].point, other.contacts[0].normal, Color.green, 2, false);
+
         if (other.gameObject.CompareTag("wall"))
         {
             SetReward(-1f);
             EndEpisode();
         }
+
+        if (other.gameObject.CompareTag("car"))
+        {
+            SetReward(-3f);
+            EndEpisode();
+        }
+
+        if (other.gameObject.CompareTag("obstacle"))
+        {
+            SetReward(-3f);
+            EndEpisode();
+        }
+
     }
 }
