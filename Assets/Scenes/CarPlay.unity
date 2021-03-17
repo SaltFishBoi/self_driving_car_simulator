@@ -2981,12 +2981,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: bebab5914c76e53428c5f0bd418df0e4,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: -7090745051701112706, guid: 20c7f04929221b946a1bf2d707af0a2e,
         type: 3}
       propertyPath: m_BehaviorType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 99863416, guid: 20c7f04929221b946a1bf2d707af0a2e, type: 3}
       propertyPath: resetOnCollision
@@ -3005,12 +3004,12 @@ PrefabInstance:
     - target: {fileID: 7004738600087619264, guid: 20c7f04929221b946a1bf2d707af0a2e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.04
+      value: 12.58
       objectReference: {fileID: 0}
     - target: {fileID: 7004738600087619264, guid: 20c7f04929221b946a1bf2d707af0a2e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.27
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7004738600087619264, guid: 20c7f04929221b946a1bf2d707af0a2e,
         type: 3}

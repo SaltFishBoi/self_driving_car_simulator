@@ -6,6 +6,12 @@ using System;
 
 public class CarAgent : Agent
 {
+    public int totalCollisions = 0;
+    public int pedCollisions = 0;
+    public int carCollisions = 0;
+    public int obstCollisions = 0;
+    public int wallCollisions = 0;
+
     public float speed = 10f;
     public float torque = 10f;
 
@@ -188,24 +194,36 @@ public class CarAgent : Agent
         {
             SetReward(-0.2f);
             EndEpisode();
+            Debug.Log("Collision w wall");
+            totalCollisions += 1;
+            wallCollisions += 1;
         }
 
         if (other.gameObject.CompareTag("car"))
         {
             SetReward(-0.6f);
             EndEpisode();
+            Debug.Log("Collision w car");
+            totalCollisions += 1;
+            carCollisions += 1;
         }
 
         if (other.gameObject.CompareTag("obstacle"))
         {
             SetReward(-0.6f);
             EndEpisode();
+            Debug.Log("Collision with obst");
+            totalCollisions += 1;
+            obstCollisions += 1;
         }
 
         if (other.gameObject.CompareTag("pedestrian"))
         {
             SetReward(-1f);
             EndEpisode();
+            Debug.Log("Collision w ped");
+            totalCollisions += 1;
+            pedCollisions += 1;
         }
 
     }
