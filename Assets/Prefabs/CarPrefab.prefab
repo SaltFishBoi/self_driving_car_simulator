@@ -14,7 +14,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 2
 --- !u!65 &99863413
 BoxCollider:
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 5
+    VectorObservationSize: 1
     NumStackedVectorObservations: 1
     VectorActionSize: 02000000
     VectorActionDescriptions: []
@@ -73,6 +73,38 @@ MonoBehaviour:
   torque: 1
   score: 0
   resetOnCollision: 1
+--- !u!114 &2378612123806213081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7004738600088050400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPerceptionSensor
+  m_DetectableTags:
+  - tile
+  - wall
+  - car
+  - obstacle
+  - pedestrian
+  - Untagged
+  m_RaysPerDirection: 18
+  m_MaxRayDegrees: 180
+  m_SphereCastRadius: 0.5
+  m_RayLength: 20
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_ObservationStacks: 1
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  m_StartVerticalOffset: 0.5
+  m_EndVerticalOffset: 0.5
 --- !u!114 &7510071750350709317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,9 +138,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: car
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
+      propertyPath: m_TagString
+      value: car
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
+      propertyPath: m_TagString
+      value: car
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
+      propertyPath: m_TagString
+      value: car
+      objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
+      propertyPath: m_TagString
+      value: car
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
       propertyPath: m_RootOrder
@@ -154,6 +202,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3df4c7f12efe4a4f8c74950d7c01556, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c29f597ef56dd240a7f6029d3cbd682, type: 3}
 --- !u!1 &7004738600088050400 stripped
