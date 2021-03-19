@@ -1,11 +1,10 @@
-# self_driving_car_simulator
-# course: csc 480
+# self_driving_car_simulator - course: csc 480
 This project is intended to explore AI and Machine Learning in a college level course
 
 A fully document original version of the project is avalible at:
 https://towardsdatascience.com/reinforcement-learning-a-self-driving-car-ai-in-unity-60b0e7a10d9e
 
-Author: Adam Streck
+Author: Adam Streck, 
 Github: https://github.com/xstreck1/cAr-drIve
 
 # cAr-drIve
